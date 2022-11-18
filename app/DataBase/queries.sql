@@ -1,1 +1,1 @@
-/* Aqui va el query de la base de datos */
+CREATE DATABASE  IF NOT EXISTS `Mundial`
