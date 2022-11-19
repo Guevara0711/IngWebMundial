@@ -32,7 +32,7 @@
                     </div>
                     <hr class="linea-usuario">
                     <div class="contenedor-iniciarsesion">
-                        <a href="" class="iniciar-sesion">Iniciar sesión</a>
+                        <a href="/Views/Login/Login.php" class="iniciar-sesion">Iniciar sesión</a>
                     </div>
                 </div>
             </div>

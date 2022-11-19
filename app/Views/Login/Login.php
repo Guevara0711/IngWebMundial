@@ -1,8 +1,42 @@
+<?php
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+session_start();
+$error= "";
+require "$root/funciones.php";
+require "$root/config.php";
+
+if(isset($_POST['Ingresar'])){
+
+	require "$root/config.php";
+	$myusername = mysqli_real_escape_string($db,$_POST['user']);
+	$mypassword = mysqli_real_escape_string($db,$_POST['password']);
+	$_SESSION['correo'] = $myusername;
+
+	$sql = "SELECT id_users FROM usuarios WHERE correo = '$myusername' and password = '$mypassword'";
+	$result = mysqli_query($link,$sql) or die(mysqli_error($link));
+	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	$_SESSION['row'] = $row;
+	$count = mysqli_num_rows($result);
+
+	$sql_nombre = "SELECT nombre FROM usuarios WHERE correo = '$myusername' and password = '$mypassword'";
+	$nombre_row = mysqli_query($link,$sql_nombre) or die(mysqli_error($link));
+	$nombre_sesion = mysqli_fetch_assoc($nombre_row);
+	$_SESSION['nombre'] = $nombre_sesion['nombre'];
+
+		$function = new Usuarios();
+		$function->login_usuario($count);
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
-	<link href="Design/CSS/SignStyle.css" rel="stylesheet" type="text/css" />
+	<link href="/Design/CSS/SignStyle.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Login/SignUp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +62,7 @@
 			<h1>Iniciar Sesión</h1>
 			<input type="email" placeholder="Correo" />
 			<input type="password" placeholder="Contraseña" />
-			<a href="Views/Home/Home.php">¿Olvidaste tu contraseña?</a>
+			<a href="/index.php">¿Olvidaste tu contraseña?</a>
 			<button>Iniciar Sesión</button>
 		</form>
 	</div>
@@ -48,7 +82,7 @@
 	</div>
 </div>
 
-<script src="Design/JS\SignJS.js" charset="utf-8"></script>
+<script src="/Design/JS\SignJS.js" charset="utf-8"></script>
 </body>
 
 </html>
