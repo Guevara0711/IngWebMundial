@@ -1,55 +1,32 @@
 <?php
-require_once "/config.php"; //conexion a la bdd
+#incluye el archivo de conexiones config.php 
+include_once("/config.php");
 session_start();
-$error= "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	// username and password sent from form 
-	$myusername = mysqli_real_escape_string($link,$_POST['usuario']);
-	$mypassword = mysqli_real_escape_string($link,$_POST['password']); 
-	$_SESSION['usuario'] = $myusername;
 
+	$myusername = mysqli_real_escape_string($link,$_POST['correo']);
+	$mypassword = mysqli_real_escape_string($link,$_POST['contrasena']);
 
-	$sql = "SELECT id_usuario FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
-	$result = mysqli_query($link,$sql) or die(mysqli_error($link));
-	$row = mysqli_fetch_assoc($result);
-	$_SESSION['row'] = $row;
+	$sql = "SELECT id_usuario FROM usuarios WHERE correo = '$myusername' and contrasena = '$mypassword'";
+	$result = mysqli_query($link,$sql);
+	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	$active = $row['active'];
+
 	$count = mysqli_num_rows($result);
 
-	$sql_nombre = "SELECT nombre FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
-	$nombre_row = mysqli_query($link,$sql_nombre) or die(mysqli_error($link));
-	$nombre_sesion = mysqli_fetch_assoc($nombre_row);
-	$_SESSION['nombre'] = $nombre_sesion;
-
-	$sql_correo = "SELECT correo FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
-	$correo_row = mysqli_query($link,$sql_correo) or die(mysqli_error($link));
-	$correo_sesion = mysqli_fetch_assoc($correo_row);
-	$_SESSION['correo'] = $correo_sesion;
-
-	$sql_contrasena = "SELECT contrasena FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
-	$contrasena_row = mysqli_query($link,$sql_contrasena) or die(mysqli_error($link));
-	$contrasena_sesion = mysqli_fetch_assoc($contrasena_row);
-	$_SESSION['contrasena'] = $contrasena_sesion;
-
-	$sql_rol = "SELECT rol FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
-	$rol_row = mysqli_query($link,$sql_rol) or die(mysqli_error($link));
-	$rol_sesion = mysqli_fetch_assoc($rol_row);
-	$_SESSION['rol'] = $rol_sesion;
-
 	// If result matched $myusername and $mypassword, table row must be 1 row
+
 	if($count == 1) {
+		session_register("myusername");
 		$_SESSION['login_user'] = $myusername;
-		header("location: welcome.php");
+
+		header("location: /Views/Equipos/Equipos.php");
 	}else {
-		$error = "Your Login Name or Password is invalid";
+		$error = "*Usuario o contraseña incorrectos. Por favor verifique sus datos e intente nuevamente";
 	}
-
-
-	$function = new Usuarios();
-	$function->login_usuario($count);
-
 }
-
 ?>
 
 <!DOCTYPE html>
