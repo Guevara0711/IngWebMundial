@@ -1,37 +1,56 @@
 <?php
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once "/config.php"; //conexion a la bdd
 session_start();
-$error = "";
-require "$root/funciones.php";
-require "$root/config.php";
+$error= "";
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+	// username and password sent from form 
+	$myusername = mysqli_real_escape_string($link,$_POST['usuario']);
+	$mypassword = mysqli_real_escape_string($link,$_POST['password']); 
+	$_SESSION['usuario'] = $myusername;
 
 
-if (isset($_POST['Ingresar'])) {
-
-	require "$root/config.php";
-	$myusername = mysqli_real_escape_string($db, $_POST['user']);
-	$mypassword = mysqli_real_escape_string($db, $_POST['password']);
-	$_SESSION['correo'] = $myusername;
-
-	$sql = "SELECT id_users FROM usuarios WHERE correo = '$myusername' and password = '$mypassword'";
-	$result = mysqli_query($link, $sql) or die(mysqli_error($link));
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$sql = "SELECT id_usuario FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
+	$result = mysqli_query($link,$sql) or die(mysqli_error($link));
+	$row = mysqli_fetch_assoc($result);
 	$_SESSION['row'] = $row;
 	$count = mysqli_num_rows($result);
 
-	$sql_nombre = "SELECT nombre FROM usuarios WHERE correo = '$myusername' and password = '$mypassword'";
-	$nombre_row = mysqli_query($link, $sql_nombre) or die(mysqli_error($link));
+	$sql_nombre = "SELECT nombre FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
+	$nombre_row = mysqli_query($link,$sql_nombre) or die(mysqli_error($link));
 	$nombre_sesion = mysqli_fetch_assoc($nombre_row);
-	$_SESSION['nombre'] = $nombre_sesion['nombre'];
+	$_SESSION['nombre'] = $nombre_sesion;
+
+	$sql_correo = "SELECT correo FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
+	$correo_row = mysqli_query($link,$sql_correo) or die(mysqli_error($link));
+	$correo_sesion = mysqli_fetch_assoc($correo_row);
+	$_SESSION['correo'] = $correo_sesion;
+
+	$sql_contrasena = "SELECT contrasena FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
+	$contrasena_row = mysqli_query($link,$sql_contrasena) or die(mysqli_error($link));
+	$contrasena_sesion = mysqli_fetch_assoc($contrasena_row);
+	$_SESSION['contrasena'] = $contrasena_sesion;
+
+	$sql_rol = "SELECT rol FROM usuarios WHERE usuario = '$myusername' and password = '$mypassword'";
+	$rol_row = mysqli_query($link,$sql_rol) or die(mysqli_error($link));
+	$rol_sesion = mysqli_fetch_assoc($rol_row);
+	$_SESSION['rol'] = $rol_sesion;
+
+	// If result matched $myusername and $mypassword, table row must be 1 row
+	if($count == 1) {
+		$_SESSION['login_user'] = $myusername;
+		header("location: welcome.php");
+	}else {
+		$error = "Your Login Name or Password is invalid";
+	}
+
 
 	$function = new Usuarios();
 	$function->login_usuario($count);
+
 }
 
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -47,38 +66,36 @@ if (isset($_POST['Ingresar'])) {
 
 <body>
 
-
-	<div class="contenedor-global" id="container">
-		<div class="contenedor-form contenedor-signup">
-			<form action="#">
-				<h1>¡Regístrate!</h1>
-				<input type="text" placeholder="Nombre" />
-				<input type="email" placeholder="Correo" />
-				<input type="password" placeholder="Contraseña" />
-				<button>Registrarse</button>
-			</form>
-		</div>
-		<div class="contenedor-form contenedor-login">
-			<form action="#">
-				<h1>Iniciar Sesión</h1>
-				<input type="email" placeholder="Correo" />
-				<input type="password" placeholder="Contraseña" />
-				<a href="/index.php">¿Olvidaste tu contraseña?</a>
-				<button>Iniciar Sesión</button>
-			</form>
-		</div>
-		<div class="contenedor-superposicion">
-			<div class="superposicion">
-				<div class="panel-superpuesto superposicion-izquierda">
-					<h1>¡Hola de Nuevo!</h1>
-					<p>Para mantenerte conectado, necesitas ingresar tus datos de inicio de sesión</p>
-					<button class="fantasma" id="signIn">Iniciar Sesión</button>
-				</div>
-				<div class="panel-superpuesto superposicion-derecha">
-					<h1>¡Bienvenido!</h1>
-					<p>¿Aún no tienes cuenta? No te preocupes, crearla es rápido y sencillo</p>
-					<button class="fantasma" id="signUp">Registrarse</button>
-				</div>
+<div class="contenedor-global" id="container">
+	<div class="contenedor-form contenedor-signup">
+		<form action="#">
+			<h1>¡Regístrate!</h1>
+			<input type="text" placeholder="Nombre" />
+			<input type="email" placeholder="Correo" />
+			<input type="password" placeholder="Contraseña" />
+			<button>Registrarse</button>
+		</form>
+	</div>
+	<div class="contenedor-form contenedor-login">
+		<form method="post" action="">
+			<h1>Iniciar Sesión</h1>
+			<input type="email" placeholder="Correo" class="input" name="usuario" />
+			<input type="password" placeholder="Contraseña" class="input" name="password" />
+			<a href="/index.php">¿Olvidaste tu contraseña?</a>
+			<button class="btn" type="submit" name="btn_ingresar" >Iniciar Sesión</button>
+		</form>
+	</div>
+	<div class="contenedor-superposicion">
+		<div class="superposicion">
+			<div class="panel-superpuesto superposicion-izquierda">
+				<h1>¡Hola de Nuevo!</h1>
+				<p>Para mantenerte conectado, necesitas ingresar tus datos de inicio de sesión</p>
+				<button class="fantasma" id="signIn">Iniciar Sesión</button>
+			</div>
+			<div class="panel-superpuesto superposicion-derecha">
+				<h1>¡Bienvenido!</h1>
+				<p>¿Aún no tienes cuenta? No te preocupes, crearla es rápido y sencillo</p>
+				<button class="fantasma" id="signUp">Registrarse</button>
 			</div>
 		</div>
 	</div>

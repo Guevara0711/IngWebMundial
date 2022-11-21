@@ -5,7 +5,7 @@ define('DB_PASSWORD', '12345612');
 define('DB_NAME', 'IngWebMundial_db');
 
 // Conectar a la bdd
-$link = new mysqli("mysql", "root", "12345612", "IngWebMundial_db");
+$link = mysqli_connect('mysql', 'root', '12345612', 'IngWebMundial_db');
 return $link;
  
 // Revisar conexion
