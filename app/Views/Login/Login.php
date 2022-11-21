@@ -44,6 +44,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$error = "Your Login Name or Password is invalid";
 	}
 
+
+	$function = new Usuarios();
+	$function->login_usuario($count);
+
 }
 
 ?>
@@ -53,15 +57,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
 	<link href="/Design/CSS/SignStyle.css" rel="stylesheet" type="text/css" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Login/SignUp</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Login/SignUp</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
 
 <div class="contenedor-global" id="container">
 	<div class="contenedor-form contenedor-signup">
@@ -96,9 +99,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			</div>
 		</div>
 	</div>
-</div>
 
-<script src="/Design/JS\SignJS.js" charset="utf-8"></script>
+	<script src="/Design/JS\SignJS.js" charset="utf-8"></script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+
 CREATE DATABASE IngWebMundial_db;
 
 USE IngWebMundial_db;
@@ -13,7 +14,3 @@ PRIMARY KEY (id_usuario)
 
 
 INSERT INTO usuarios (nombre, correo, contrasena, rol) VALUES ('Samuel', 'Samuel@live.com', '1234', 'admin');
-
-
-
-
