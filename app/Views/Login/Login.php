@@ -1,6 +1,6 @@
 <?php
 #incluye el archivo de conexiones config.php 
-include_once("/config.php");
+require '../../config.php';
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,14 +18,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	// If result matched $myusername and $mypassword, table row must be 1 row
 
-	if($count == 1) {
+	if ($count == 1) {
 		session_register("myusername");
-		$_SESSION['login_user'] = $myusername;
-
-		header("location: /Views/Equipos/Equipos.php");
-	}else {
-		$error = "*Usuario o contraseña incorrectos. Por favor verifique sus datos e intente nuevamente";
+		$_SESSION['btn_ingresar'] = "true";
+		header("location: ../../index.php");
+	} else {
+		$error = "Your Login Name or Password is invalid";
 	}
+	
 }
 ?>
 
