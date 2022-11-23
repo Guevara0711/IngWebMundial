@@ -15,38 +15,23 @@ if(isset($_POST['ingresar'])){
         $_SESSION['usuario'] = $myusername;
     
 
-        
-        //revisa el id del usuario que se intenta loggear
-        $sql = "SELECT id_users FROM users WHERE username = '$myusername' and password = '$mypassword'";
-        $result = mysqli_query($link,$sql) or die (mysqli_error($link));
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['row'] = $row;
-        $count = mysqli_num_rows($result);
-    
-        //creando variables de sesion para la duracion del proceso
-        $sql_nombre = "SELECT nombre FROM users WHERE username = '$myusername' and password = '$mypassword'";
-        $nombre_row = mysqli_query($link, $sql_nombre) or die (mysqli_error($link));
-        $nombre_sesion = mysqli_fetch_assoc($nombre_row);
-        $_SESSION['nombre_user'] = $nombre_sesion;
-    
-        $sql_apellido = "SELECT apellido FROM users WHERE username = '$myusername' and password = '$mypassword'";
-        $apellido_row = mysqli_query($link, $sql_apellido) or die (mysqli_error($link));
-        $apellido_sesion = mysqli_fetch_assoc($apellido_row);
-        $_SESSION['apellido_user'] = $apellido_sesion;  
-            
-        $sql_correo = "SELECT correo FROM users WHERE username = '$myusername' and password = '$mypassword'";
-        $correo_row = mysqli_query($link, $sql_correo) or die (mysqli_error($link));
-        $correo_sesion = mysqli_fetch_assoc($correo_row);
-        $_SESSION['correo_user'] = $correo_sesion;
-        
-        $sql_telefono = "SELECT telefono FROM users WHERE username = '$myusername' and password = '$mypassword'";
-        $telefono_row = mysqli_query($link, $sql_telefono) or die (mysqli_error($link));
-        $telefono_sesion = mysqli_fetch_assoc($telefono_row);
-        $_SESSION['telefono_user'] = $telefono_sesion;
-    
-            $funcion = new Usuarios();
-            $funcion->login_usuario($count);
+	$sql = "SELECT id_usuario FROM usuarios WHERE correo = '$myusername' and contrasena = '$mypassword'";
+	$result = mysqli_query($link,$sql);
+	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	$active = $row['active'];
 
+	$count = mysqli_num_rows($result);
+
+	// If result matched $myusername and $mypassword, table row must be 1 row
+
+	if ($count == 1) {
+		session_register("myusername");
+		$_SESSION['btn_ingresar'] = "true";
+		header("location: ../../index.php");
+	} else {
+		$error = "Your Login Name or Password is invalid";
+	}
+	
 }
 
 ?>
@@ -78,10 +63,10 @@ if(isset($_POST['ingresar'])){
 	<div class="contenedor-form contenedor-login">
 		<form method="post" action="">
 			<h1>Iniciar Sesión</h1>
-			<input type="text" placeholder="Usuario" class="input" name="user" />
+			<input type="email" placeholder="Correo" class="input" name="usuario" />
 			<input type="password" placeholder="Contraseña" class="input" name="password" />
 			<a href="/index.php">¿Olvidaste tu contraseña?</a>
-			<button class="btn" type="submit" name="ingresar">Iniciar Sesión</button>
+			<button class="btn" type="submit" name="btn_ingresar" >Iniciar Sesión</button>
 		</form>
 	</div>
 	<div class="contenedor-superposicion">
@@ -97,9 +82,8 @@ if(isset($_POST['ingresar'])){
 				<button class="fantasma" id="signUp">Registrarse</button>
 			</div>
 		</div>
-	</div>
 
-	<script src="/Design/JS\SignJS.js" charset="utf-8"></script>
+		<script src="/Design/JS\SignJS.js" charset="utf-8"></script>
 </body>
 
 </html>
