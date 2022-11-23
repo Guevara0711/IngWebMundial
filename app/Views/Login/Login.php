@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include("../../config.php"); //conexion a la bdd
 
@@ -26,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$error = "Usuario o contraseña incorrectos. Por favor verifique sus datos e intente nuevamente";
 		echo $error;
 	}
+
 }
 ?>
 
