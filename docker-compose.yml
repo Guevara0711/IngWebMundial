@@ -9,7 +9,7 @@ services:
         restart: unless-stopped
         environment:
           - MYSQL_ROOT_PASSWORD=12345612
-          - MYSQL_DATABASE=IngWebMundial_db
+          - MYSQL_DATABASE=ingweb
         ports:
           - "3306:3306"
   apache-php:
