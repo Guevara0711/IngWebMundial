@@ -1,15 +1,12 @@
 <?php
-define('DB_SERVER', 'localhost:3000'); #No se si es 3000 o 3036 
-define('DB_USERNAME', 'root'); 
+define('DB_SERVER', 'tcp:3306');
+define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '12345612');
-define('DB_NAME', 'IngWebMundial_db');
+define('DB_DATABASE', 'IngWebMundial_db');
 
 // Conectar a la bdd
-$link = mysqli_connect('mysql', 'root', '12345612', 'IngWebMundial_db');
-return $link;
- 
-// Revisar conexion
-if($link === false){
-    die("Error de conexión " . mysqli_connect_error());
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+if (mysqli_connect_errno()) {
+  // If there is an error with the connection, stop the script and display the error.
+  exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
-?>
