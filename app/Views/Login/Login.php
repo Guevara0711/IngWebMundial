@@ -1,34 +1,54 @@
 <?php
-
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 session_start();
-include("../../config.php"); //conexion a la bdd
+$error= "";
+require "$root/funciones.php";
+require "$root/config.php";
 
-$error = "";
+if(isset($_POST['ingresar'])){
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	// username and password sent from form 
-	$myusername = mysqli_real_escape_string($link, $_POST['usuario']);
-	$mypassword = mysqli_real_escape_string($link, $_POST['password']);
+    require "$root/config.php"; //conexion a la bdd
+        //revisa las variables enviadas desde el form
+        
+        $myusername = mysqli_real_escape_string($link,$_POST['user']);
+        $mypassword = mysqli_real_escape_string($link,$_POST['password']); 
+        $_SESSION['usuario'] = $myusername;
+    
 
-	$sql = "SELECT nombre FROM usuarios WHERE correo = '$myusername';";
-
-	if (mysqli_query($link, $sql)) {
-		$result = mysqli_query($link, $sql);
-		$row = mysqli_fetch_array($result);
-		if (mysqli_num_rows($result) == 0) {
-			$error = "Usuario o contraseña incorrectos. Por favor verifique sus datos e intente nuevamente";
-			echo $error;
-		} else {
-			echo "Usuario o contraseña correctamente";
-			$_SESSION['login_user'] = $myusername;
-			header("Location:View/Equipos/Equipos.php");
-		}
-	} else {
-		$error = "Usuario o contraseña incorrectos. Por favor verifique sus datos e intente nuevamente";
-		echo $error;
-	}
+        
+        //revisa el id del usuario que se intenta loggear
+        $sql = "SELECT id_users FROM users WHERE username = '$myusername' and password = '$mypassword'";
+        $result = mysqli_query($link,$sql) or die (mysqli_error($link));
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['row'] = $row;
+        $count = mysqli_num_rows($result);
+    
+        //creando variables de sesion para la duracion del proceso
+        $sql_nombre = "SELECT nombre FROM users WHERE username = '$myusername' and password = '$mypassword'";
+        $nombre_row = mysqli_query($link, $sql_nombre) or die (mysqli_error($link));
+        $nombre_sesion = mysqli_fetch_assoc($nombre_row);
+        $_SESSION['nombre_user'] = $nombre_sesion;
+    
+        $sql_apellido = "SELECT apellido FROM users WHERE username = '$myusername' and password = '$mypassword'";
+        $apellido_row = mysqli_query($link, $sql_apellido) or die (mysqli_error($link));
+        $apellido_sesion = mysqli_fetch_assoc($apellido_row);
+        $_SESSION['apellido_user'] = $apellido_sesion;  
+            
+        $sql_correo = "SELECT correo FROM users WHERE username = '$myusername' and password = '$mypassword'";
+        $correo_row = mysqli_query($link, $sql_correo) or die (mysqli_error($link));
+        $correo_sesion = mysqli_fetch_assoc($correo_row);
+        $_SESSION['correo_user'] = $correo_sesion;
+        
+        $sql_telefono = "SELECT telefono FROM users WHERE username = '$myusername' and password = '$mypassword'";
+        $telefono_row = mysqli_query($link, $sql_telefono) or die (mysqli_error($link));
+        $telefono_sesion = mysqli_fetch_assoc($telefono_row);
+        $_SESSION['telefono_user'] = $telefono_sesion;
+    
+            $funcion = new Usuarios();
+            $funcion->login_usuario($count);
 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -45,41 +65,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-	<div class="contenedor-global" id="container">
-		<div class="contenedor-form contenedor-signup">
-			<form method="post">
-				<h1>¡Regístrate!</h1>
-				<input type="text" placeholder="Nombre" />
-				<input type="email" placeholder="Correo" />
-				<input type="password" placeholder="Contraseña" />
-				<button>Registrarse</button>
-			</form>
-		</div>
-		<div class="contenedor-form contenedor-login">
-			<form method="post" action="">
-				<h1>Iniciar Sesión</h1>
-				<input type="email" placeholder="Correo" class="input" name="usuario" />
-				<input type="password" placeholder="Contraseña" class="input" name="password" />
-				<a href="/index.php">¿Olvidaste tu contraseña?</a>
-				<button class="btn" type="submit" name="btn_ingresar">Iniciar Sesión</button>
-			</form>
-		</div>
-		<div class="contenedor-superposicion">
-			<div class="superposicion">
-				<div class="panel-superpuesto superposicion-izquierda">
-					<h1>¡Hola de Nuevo!</h1>
-					<p>Para mantenerte conectado, necesitas ingresar tus datos de inicio de sesión</p>
-					<button class="fantasma" id="signIn">Iniciar Sesión</button>
-				</div>
-				<div class="panel-superpuesto superposicion-derecha">
-					<h1>¡Bienvenido!</h1>
-					<p>¿Aún no tienes cuenta? No te preocupes, crearla es rápido y sencillo</p>
-					<button class="fantasma" id="signUp">Registrarse</button>
-				</div>
+<div class="contenedor-global" id="container">
+	<div class="contenedor-form contenedor-signup">
+		<form action="#">
+			<h1>¡Regístrate!</h1>
+			<input type="text" placeholder="Nombre" />
+			<input type="email" placeholder="Correo" />
+			<input type="password" placeholder="Contraseña" />
+			<button>Registrarse</button>
+		</form>
+	</div>
+	<div class="contenedor-form contenedor-login">
+		<form method="post" action="">
+			<h1>Iniciar Sesión</h1>
+			<input type="text" placeholder="Usuario" class="input" name="user" />
+			<input type="password" placeholder="Contraseña" class="input" name="password" />
+			<a href="/index.php">¿Olvidaste tu contraseña?</a>
+			<button class="btn" type="submit" name="ingresar">Iniciar Sesión</button>
+		</form>
+	</div>
+	<div class="contenedor-superposicion">
+		<div class="superposicion">
+			<div class="panel-superpuesto superposicion-izquierda">
+				<h1>¡Hola de Nuevo!</h1>
+				<p>Para mantenerte conectado, necesitas ingresar tus datos de inicio de sesión</p>
+				<button class="fantasma" id="signIn">Iniciar Sesión</button>
+			</div>
+			<div class="panel-superpuesto superposicion-derecha">
+				<h1>¡Bienvenido!</h1>
+				<p>¿Aún no tienes cuenta? No te preocupes, crearla es rápido y sencillo</p>
+				<button class="fantasma" id="signUp">Registrarse</button>
 			</div>
 		</div>
+	</div>
 
-		<script src="/Design/JS\SignJS.js" charset="utf-8"></script>
+	<script src="/Design/JS\SignJS.js" charset="utf-8"></script>
 </body>
 
 </html>
