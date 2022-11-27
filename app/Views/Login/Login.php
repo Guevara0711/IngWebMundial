@@ -38,11 +38,12 @@ if(isset($_POST['ingresar'])){
         $correo_row = mysqli_query($link, $sql_correo) or die (mysqli_error($link));
         $correo_sesion = mysqli_fetch_assoc($correo_row);
         $_SESSION['correo_user'] = $correo_sesion;
-        
-        $sql_telefono = "SELECT telefono FROM users WHERE username = '$myusername' and password = '$mypassword'";
-        $telefono_row = mysqli_query($link, $sql_telefono) or die (mysqli_error($link));
-        $telefono_sesion = mysqli_fetch_assoc($telefono_row);
-        $_SESSION['telefono_user'] = $telefono_sesion;
+
+		$sql_rol = "SELECT rol_id FROM users WHERE username = '$myusername' and password = '$mypassword'";
+		$rol_row = mysqli_query($link, $sql_rol) or die (mysqli_error($link));
+		$rol_sesion = mysqli_fetch_assoc($rol_row);
+		$_SESSION['rol_user'] = $rol_sesion;
+
     
             $funcion = new Usuarios();
             $funcion->login_usuario($count);
@@ -70,6 +71,8 @@ if(isset($_POST['ingresar'])){
 		<form action="#">
 			<h1>¡Regístrate!</h1>
 			<input type="text" placeholder="Nombre" />
+			<input type="text" placeholder="Apellido" />
+			<input type="text" placeholder="Usuario" />
 			<input type="email" placeholder="Correo" />
 			<input type="password" placeholder="Contraseña" />
 			<button>Registrarse</button>
