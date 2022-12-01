@@ -17,7 +17,7 @@
         <nav>
             <div class="contenedor-menu">
                 <div class="contenedor-imagen-mundial">
-                    <a href="index.php"><img src="/Design/Image\qatar2022.png" alt=""></a>
+                    <a href="/index.php"><img src="/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
                     <li><a href="/index.php">Inicio</a></li>
@@ -25,7 +25,6 @@
                     <li><a href="/Views/NoUser/Posiciones.php">Posiciones</a></li>
                     <li><a href="/Views/NoUser/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="/Views/NoUser/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
@@ -44,14 +43,6 @@
           <span id="pais">España</span>
           <span id="grupo">Grupo E</span>
         </div>
-      </div>
-      <div class="contenedor-boton-favorito">
-        <a href="">
-          <div class="imagensita-favorita">
-            <img src="https://cdn-icons-png.flaticon.com/512/1721/1721922.png" alt="">
-            <span>Añadir como favorito</span>
-          </div>
-        </a>
       </div>
     </div>
     <div class="contenedor-estadisticas-general">

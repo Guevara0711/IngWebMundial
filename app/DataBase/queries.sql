@@ -39,5 +39,6 @@ LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES (1,'guevara07','12345612','Pedro','Castillo','pedro@live.com','1');
 INSERT INTO `users` VALUES (2,'samuel00','12345612','Samuel','Nuñez','samuel@gmail.com','2');
+INSERT INTO `users` VALUES (3,'roberto14','291402','Roberto','Cortez','robertito@gmail.com','1');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

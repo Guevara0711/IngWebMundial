@@ -24,7 +24,6 @@
                     <li><a href="/Views/NoUser/Posiciones.php">Posiciones</a></li>
                     <li><a href="/Views/NoUser/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="/Views/NoUser/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">

@@ -1,3 +1,14 @@
+<?php session_start()?>
+<?php
+if (!isset($_SESSION['nombre_user']))
+{                     
+    session_unset();
+    session_destroy();
+    header("Location: /index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +40,10 @@
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
-                        <a href="" class="iniciar-sesion">Nombre de Usuario</a>
+                        <a href="" class="iniciar-sesion">Bienvenido, <?php echo implode(', ', $_SESSION['nombre_user']); echo ' '; echo implode(', ', $_SESSION['apellido_user']);?></a>
+                    </div>
+                    <div class="contenedor-iniciarsesion">
+                        <button class="cerrar-sesion" name="CerrarSesion"><a href="<?php $root;?>/logout.php">Cerrar Sesión</a></button>
                     </div>
                 </div>
             </div>

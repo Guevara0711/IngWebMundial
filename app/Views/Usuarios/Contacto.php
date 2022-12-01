@@ -1,3 +1,14 @@
+<?php session_start()?>
+<?php
+if (!isset($_SESSION['nombre_user']))
+{                     
+    session_unset();
+    session_destroy();
+    header("Location: /index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +28,7 @@
         <nav>
             <div class="contenedor-menu">
                 <div class="contenedor-imagen-mundial">
-                    <a href=""><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
+                    <a href="/Views/Usuarios/indexusuario.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
                     <li><a href="<?php $root;?>/Views/Usuarios/indexusuario.php" class="seleccion">Inicio</a></li>
@@ -29,7 +40,11 @@
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
-                        <a href="Sign.php" class="iniciar-sesion">Nombre de Usuario</a>
+                        <a href="Sign.php" class="iniciar-sesion">Bienvenido, <?php echo implode(', ', $_SESSION['nombre_user']); echo ' '; echo implode(', ', $_SESSION['apellido_user']);?></a>
+                    </div>
+                    <div class="contenedor-iniciarsesion">
+                        <button class="cerrar-sesion" name="CerrarSesion"><a href="<?php $root;?>/logout.php">Cerrar Sesión</a></button>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,11 @@
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
-                        <a href="/Views/Login/Login.php" class="iniciar-sesion">Iniciar sesión</a>
+                        <a href="/Views/Login/Login.php" class="iniciar-sesion">Bienvenido, <?php echo implode(', ', $_SESSION['nombre_user']); echo ' '; echo implode(', ', $_SESSION['apellido_user']);?></a>
+                    </div>
+                    <div class="contenedor-iniciarsesion">
+                        <button class="cerrar-sesion" name="CerrarSesion"><a href="<?php $root;?>/logout.php">Cerrar Sesión</a></button>
+                    </div>
                     </div>
                 </div>
             </div>

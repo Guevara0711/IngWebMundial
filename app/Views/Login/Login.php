@@ -64,7 +64,7 @@ if (isset($_POST['reg_user'])){
     $apellido = mysqli_real_escape_string($link,$_POST['apellido']);   
     $email = mysqli_real_escape_string($link,$_POST['email']);
 	
-    if (!preg_match('/^[a-zA-Z0-9'-'\.]*$/', $username)){
+    if (!preg_match('/^[a-zA-Z0-9\.]*$/', $username)){
         $_SESSION['error'] = "Error en caracteres para nombre de usuario, solo puede usar letras, numeros y guiones";
         header('location: /error.php');
 
