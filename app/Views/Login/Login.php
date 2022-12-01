@@ -5,6 +5,7 @@ $error= "";
 require "$root/funciones.php";
 require "$root/config.php";
 
+
 if(isset($_POST['ingresar'])){
 
     require "$root/config.php"; //conexion a la bdd
@@ -14,8 +15,6 @@ if(isset($_POST['ingresar'])){
         $mypassword = mysqli_real_escape_string($link,$_POST['password']); 
         $_SESSION['usuario'] = $myusername;
     
-
-        
         //revisa el id del usuario que se intenta loggear
         $sql = "SELECT id_users FROM users WHERE username = '$myusername' and password = '$mypassword'";
         $result = mysqli_query($link,$sql) or die (mysqli_error($link));
@@ -50,13 +49,52 @@ if(isset($_POST['ingresar'])){
 
 }
 
+$username = "";
+$nombre   = "";
+$apellido = "";
+$password = "";
+$email   = "";
+$error = "";
+
+if (isset($_POST['reg_user'])){
+
+    $username =  mysqli_real_escape_string($link,$_POST['username']);
+    $nombre = mysqli_real_escape_string($link,$_POST['nombre']);
+    $apellido = mysqli_real_escape_string($link,$_POST['apellido']);
+    $password = mysqli_real_escape_string($link,$_POST['password']);    
+    $email = mysqli_real_escape_string($link,$_POST['email']);
+	
+    if (!preg_match('/^[a-zA-Z\.]*$/', $username)){
+        $_SESSION['error'] = "Error en caracteres para nombre de usuario, solo puede usar Numeros y '-'"; 
+        header('location: /error.php');
+
+    }elseif(!preg_match('/^[a-zA-Z\.]*$/', $nombre)){
+        $_SESSION['error'] = "Error en caracteres para Nombre, usar unicamente valores de A-z"; 
+        header('location: /error.php');
+
+    }elseif(!preg_match('/^[a-zA-Z\.]*$/', $apellido)){
+        $_SESSION['error'] = "Error en caracteres para Apellido, usar unicamente valores de A-z"; 
+        header('location: /error.php');
+
+    }else{
+        $funcion = new Usuarios();
+        $funcion->registrarUser($username,$nombre,$apellido,$password,$email); 
+
+    }
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+<?php 
+    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+?>
+
 <head>
-	<link href="/Design/CSS/SignStyle.css" rel="stylesheet" type="text/css" />
+	<link href="<?php $root;?>/Design/CSS/SignStyle.css" rel="stylesheet" type="text/css" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Login/SignUp</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,14 +106,14 @@ if(isset($_POST['ingresar'])){
 
 <div class="contenedor-global" id="container">
 	<div class="contenedor-form contenedor-signup">
-		<form action="#">
+		<form method="post" action="Login.php">
 			<h1>¡Regístrate!</h1>
-			<input type="text" placeholder="Nombre" />
-			<input type="text" placeholder="Apellido" />
-			<input type="text" placeholder="Usuario" />
-			<input type="email" placeholder="Correo" />
-			<input type="password" placeholder="Contraseña" />
-			<button>Registrarse</button>
+			<input type="text" name="nombre" value="<?php echo $nombre; ?>" placeholder="Nombre" />
+			<input type="text" name="apellido" value="<?php echo $apellido; ?>" placeholder="Apellido" />
+			<input type="text" name="username" require value="<?php echo $username; ?>" placeholder="Usuario" />
+			<input type="email" name="email" require value="<?php echo $email; ?>" placeholder="Correo" />
+			<input type="password" name="password" require value="<?php echo $password; ?>" placeholder="Contraseña" />
+			<button class="btn" type="submit" name="reg_user">Registrarse</button>
 		</form>
 	</div>
 	<div class="contenedor-form contenedor-login">
