@@ -59,9 +59,9 @@ $error = "";
 if (isset($_POST['reg_user'])){
 
     $username =  mysqli_real_escape_string($link,$_POST['username']);
+    $password = mysqli_real_escape_string($link,$_POST['password']); 
     $nombre = mysqli_real_escape_string($link,$_POST['nombre']);
-    $apellido = mysqli_real_escape_string($link,$_POST['apellido']);
-    $password = mysqli_real_escape_string($link,$_POST['password']);    
+    $apellido = mysqli_real_escape_string($link,$_POST['apellido']);   
     $email = mysqli_real_escape_string($link,$_POST['email']);
 	
     if (!preg_match('/^[a-zA-Z\.]*$/', $username)){
@@ -78,7 +78,7 @@ if (isset($_POST['reg_user'])){
 
     }else{
         $funcion = new Usuarios();
-        $funcion->registrarUser($username,$nombre,$apellido,$password,$email); 
+        $funcion->registrarUser($username,$password,$nombre,$apellido,$email); 
 
     }
 }
