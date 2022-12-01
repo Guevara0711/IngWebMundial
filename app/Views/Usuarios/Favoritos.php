@@ -29,7 +29,7 @@
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
-                        <a href="/Views/Login/Login.php" class="iniciar-sesion">Nombre de Usuario</a>
+                        <a href="" class="iniciar-sesion">Nombre de Usuario</a>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
     <div class="contenedor-general-equipos">
       <div class="contenedor-equipo-favorito">
           <div class="contenedor-bandera-nombre">
-              <img src="IMGs\banderaespaña.webp" alt="">
+              <img src="/Design/Image\banderaespaña.webp" alt="">
               <span>España</span>
           </div>
           <hr class="separador-bandera-partidos">

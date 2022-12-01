@@ -17,15 +17,15 @@
         <nav>
             <div class="contenedor-menu">
                 <div class="contenedor-imagen-mundial">
-                    <a href="<?php $root;?>/Views/Usuarios/indexusuario.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
+                    <a href="<?php $root;?>/Views/Administradores/indexadmin.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
-                    <li><a href="<?php $root;?>/Views/Usuarios/indexusuario.php">Inicio</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Equipos.php">Equipos</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Posiciones.php" class="seleccion">Posiciones</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Resultados.php">Resultados</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/indexadmin.php">Inicio</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Equipos.php">Equipos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Posiciones.php" class="seleccion">Posiciones</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Favoritos.php">Favoritos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
@@ -561,7 +561,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="<?php $root;?>/Views/Usuarios/Nosotros.php">Sobre Nosotros</a>
+            <a href="<?php $root;?>/Views/Administradores/Nosotros.php">Sobre Nosotros</a>
           </li>
         </ul>
       </li>
@@ -571,7 +571,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="<?php $root;?>/Views/Usuarios/Contacto.php">Contacto</a>
+            <a href="<?php $root;?>/Views/Administradores/Contacto.php">Contacto</a>
           </li>
         </ul>
       </li>

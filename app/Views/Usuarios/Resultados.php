@@ -156,7 +156,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="<?php $root;?>/Views/Usuarios/Views/Usuarios/Nosotros.php">Sobre Nosotros</a>
+            <a href="<?php $root;?>/Views/Usuarios/Nosotros.php">Sobre Nosotros</a>
           </li>
         </ul>
       </li>

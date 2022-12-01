@@ -17,19 +17,19 @@
         <nav>
             <div class="contenedor-menu">
                 <div class="contenedor-imagen-mundial">
-                    <a href="<?php $root;?>/Views/Usuarios/indexusuario.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
+                    <a href="<?php $root;?>/Views/Administradores/indexadmin.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
-                    <li><a href="<?php $root;?>/Views/Usuarios/indexusuario.php">Inicio</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Equipos.php">Equipos</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Posiciones.php">Posiciones</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Resultados.php">Resultados</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/indexadmin.php">Inicio</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Equipos.php">Equipos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Posiciones.php">Posiciones</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Favoritos.php" class="seleccion">Favoritos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Favoritos.php" class="seleccion">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
-                        <a href="/Views/Login/Login.php" class="iniciar-sesion">Nombre de Usuario</a>
+                        <a href="" class="iniciar-sesion">Nombre de Usuario</a>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
     <div class="contenedor-general-equipos">
       <div class="contenedor-equipo-favorito">
           <div class="contenedor-bandera-nombre">
-              <img src="IMGs\banderaespaña.webp" alt="">
+              <img src="/Design/Image\banderaespaña.webp" alt="">
               <span>España</span>
           </div>
           <hr class="separador-bandera-partidos">
@@ -101,7 +101,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="<?php $root;?>/Views/Usuarios/Nosotros.php">Sobre Nosotros</a>
+            <a href="<?php $root;?>/Views/Administradores/Nosotros.php">Sobre Nosotros</a>
           </li>
         </ul>
       </li>
@@ -111,7 +111,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="<?php $root;?>/Views/Usuarios/Contacto.php">Contacto</a>
+            <a href="<?php $root;?>/Views/Administradores/Contacto.php">Contacto</a>
           </li>
         </ul>
       </li>

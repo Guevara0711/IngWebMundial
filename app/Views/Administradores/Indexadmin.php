@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/Design/CSS/HomeStyle1.css" rel="stylesheet" type="text/css" />
+    <link href="<?php $root;?>/Design/CSS/HomeStyle1.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fifa World Cup 2022</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,19 +16,19 @@
         <nav>
             <div class="contenedor-menu">
                 <div class="contenedor-imagen-mundial">
-                    <a href=""><img src="/Design/Image\qatar2022.png" alt=""></a>
+                    <a href="<?php $root;?>/Views/Administradores/Indexadmin.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
-                    <li><a href="/indexadmin.php" class="seleccion">Inicio</a></li>
-                    <li><a href="/Views/Usuarios/Equipos.php">Equipos</a></li>
-                    <li><a href="/Views/Usuarios/Posiciones.php">Posiciones</a></li>
-                    <li><a href="/Views/Usuarios/Resultados.php">Resultados</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/indexadmin.php" class="seleccion">Inicio</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Equipos.php">Equipos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Posiciones.php">Posiciones</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="/Views/Usuarios/Favoritos.php">Favoritos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
-                        <a href="/Views/Login/Login.php" class="iniciar-sesion" name="SaludoInicio">Iniciar sesión</a>
+                        <a href="" class="iniciar-sesion" name="SaludoInicio">Nombre de Usuario</a>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="Nosotros.php">Sobre Nosotros</a>
+            <a href="<?php $root;?>/Views/Administradores/Nosotros.php">Sobre Nosotros</a>
           </li>
         </ul>
       </li>
@@ -181,7 +181,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="Contacto.php">Contacto</a>
+            <a href="<?php $root;?>/Views/Administradores/Contacto.php">Contacto</a>
           </li>
         </ul>
       </li>

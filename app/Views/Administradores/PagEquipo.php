@@ -20,12 +20,12 @@
                     <a href="index.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
-                    <li><a href="<?php $root;?>/Views/Usuarios/indexusuario.php">Inicio</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Equipos.php" class="seleccion">Equipos</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Posiciones.php">Posiciones</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Resultados.php">Resultados</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/indexadmin.php">Inicio</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Equipos.php" class="seleccion">Equipos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Posiciones.php">Posiciones</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="<?php $root;?>/Views/Usuarios/Favoritos.php">Favoritos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
@@ -333,7 +333,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="/Views/NoUser/Nosotros.php">Sobre Nosotros</a>
+            <a href="/Views/Administradores/Nosotros.php">Sobre Nosotros</a>
           </li>
         </ul>
       </li>
@@ -343,7 +343,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="Contacto.php">Contacto</a>
+            <a href="/Views/Administradores/Contacto.php">Contacto</a>
           </li>
         </ul>
       </li>
