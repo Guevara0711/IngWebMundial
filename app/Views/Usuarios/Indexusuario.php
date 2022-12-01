@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/Design/CSS/HomeStyle1.css" rel="stylesheet" type="text/css" />
+    <link href="<?php $root;?>/Design/CSS/HomeStyle1.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fifa World Cup 2022</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,15 +16,15 @@
         <nav>
             <div class="contenedor-menu">
                 <div class="contenedor-imagen-mundial">
-                    <a href="<?php $root;?>/indexusuario.php"><img src="/Design/Image\qatar2022.png" alt=""></a>
+                    <a href="<?php $root;?>/Views/Usuarios/indexusuario.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
-                    <li><a href="/indexusuario.php" class="seleccion">Inicio</a></li>
-                    <li><a href="/Views/Usuarios/Equipos.php">Equipos</a></li>
-                    <li><a href="/Views/Usuarios/Posiciones.php">Posiciones</a></li>
-                    <li><a href="/Views/Usuarios/Resultados.php">Resultados</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/indexusuario.php" class="seleccion">Inicio</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/Equipos.php">Equipos</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/Posiciones.php">Posiciones</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="/Views/Usuarios/Favoritos.php">Favoritos</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
@@ -171,7 +171,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="/Views/Usuarios/Nosotros.php">Sobre Nosotros</a>
+            <a href="<?php $root;?>/Views/Usuarios/Nosotros.php">Sobre Nosotros</a>
           </li>
         </ul>
       </li>
@@ -181,7 +181,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="Contacto.php">Contacto</a>
+            <a href="<?php $root;?>/Views/Usuarios/Contacto.php">Contacto</a>
           </li>
         </ul>
       </li>

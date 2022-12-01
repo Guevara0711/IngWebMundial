@@ -181,7 +181,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="Contacto.php">Contacto</a>
+            <a href="/Views/NoUser/Contacto.php">Contacto</a>
           </li>
         </ul>
       </li>

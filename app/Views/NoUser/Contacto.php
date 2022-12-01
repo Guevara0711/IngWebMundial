@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="CSS/HomeStyle.css" rel="stylesheet" type="text/css" />
-    <link href="CSS/ContactoStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/Design/CSS/HomeStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/Design/CSS/ContactoStyle.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fifa World Cup 2022</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,21 +17,17 @@
         <nav>
             <div class="contenedor-menu">
                 <div class="contenedor-imagen-mundial">
-                    <a href=""><img src="IMGs\qatar2022.png" alt=""></a>
+                    <a href="/index.php"><img src="/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
-                    <li><a href="Home.php" class="seleccion">Inicio</a></li>
-                    <li><a href="Equipos.php">Equipos</a></li>
-                    <li><a href="Posiciones.php">Posiciones</a></li>
-                    <li><a href="Resultados.php">Resultados</a></li>
+                    <li><a href="/Design/NoUser/index.php" class="seleccion">Inicio</a></li>
+                    <li><a href="/Design/NoUser/Equipos.php">Equipos</a></li>
+                    <li><a href="/Design/NoUser/Posiciones.php">Posiciones</a></li>
+                    <li><a href="/Design/NoUser/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="Favoritos.php">Favoritos</a></li>
+                    <li><a href="/Design/NoUser/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
-                    <div class="contenedor-registrarse">
-                        <a href="Sign.php" class="registrarse">Registrarse</a>
-                    </div>
-                    <hr class="linea-usuario">
                     <div class="contenedor-iniciarsesion">
                         <a href="Sign.php" class="iniciar-sesion">Iniciar sesión</a>
                     </div>
@@ -105,7 +101,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="#">Sobre Nosotros</a>
+            <a href="/Views/NoUser/Nosotros.php">Sobre Nosotros</a>
           </li>
         </ul>
       </li>
@@ -115,12 +111,12 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="#">Contacto</a>
+            <a href="/Views/NoUser/Contacto.php">Contacto</a>
           </li>
         </ul>
       </li>
     </ul>
     </footer>
-    <script src="JS\ContactoJS.js" charset="utf-8"></script>
+    <script src="/Design/JS\ContactoJS.js" charset="utf-8"></script>
 </body>
 </html>

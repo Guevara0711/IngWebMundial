@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/Design/CSS/HomeStyle1.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/Design/CSS/EquipoStyle.css" type="text/css">
+    <link href="<?php $root;?>/Design/CSS/HomeStyle1.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<?php $root;?>/Design/CSS/EquipoStyle.css" type="text/css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fifa World Cup 2022</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,15 +14,15 @@
         <nav>
             <div class="contenedor-menu">
                 <div class="contenedor-imagen-mundial">
-                    <a href="/index.php"><img src="/Design/Image\qatar2022.png" alt=""></a>
+                    <a href="<?php $root;?>/Views/Usuarios/indexusuario.php"><img src="<?php $root;?>/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
-                    <li><a href="/indexusuario.php">Inicio</a></li>
-                    <li><a href="Equipos.php" class="seleccion">Equipos</a></li>
-                    <li><a href="Posiciones.php">Posiciones</a></li>
-                    <li><a href="Resultados.php">Resultados</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/indexusuario.php">Inicio</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/Equipos.php" class="seleccion">Equipos</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/Posiciones.php">Posiciones</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="Favoritos.php">Favoritos</a></li>
+                    <li><a href="<?php $root;?>/Views/Usuarios/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-registrarse">
