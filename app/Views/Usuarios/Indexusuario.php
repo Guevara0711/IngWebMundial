@@ -28,7 +28,7 @@
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
-                        <a href="" name="SaludoInicio">Nombre de Usuario</a>
+                        <a href="" class="iniciar-sesion" name="SaludoInicio">Nombre de Usuario</a>
                     </div>
                 </div>
             </div>
