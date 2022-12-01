@@ -32,11 +32,11 @@ if (!isset($_SESSION['nombre_user']))
                 </div>
                 <ul class="menu">
                     <li><a href="<?php $root;?>/Views/Administradores/indexadmin.php">Inicio</a></li>
-                    <li><a href="/Views/Administradores/Equipos.php">Equipos</a></li>
-                    <li><a href="/Views/Administradores/Posiciones.php">Posiciones</a></li>
-                    <li><a href="/Views/Administradores/Resultados.php" class="seleccion">Resultados</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Equipos.php">Equipos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Posiciones.php">Posiciones</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Resultados.php" class="seleccion">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="/Views/Administradores/Favoritos.php">Favoritos</a></li>
+                    <li><a href="<?php $root;?>/Views/Administradores/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
@@ -55,6 +55,7 @@ if (!isset($_SESSION['nombre_user']))
             <span id="texto-dia">Día de Encuentro</span>
         </div>
         <div class="contenedor-menu-desplegable">
+        <button id="btn-actualizar" onclick="location.href='/Views/Administradores/ActualizarResultados.php'">Actualizar Resultados</button>
             <select name="" id="seleccionar" onchange="seleccionar()">
                 <option id="dia1">Domingo 20/11</option>
                 <option id="dia2">Lunes 21/11</option>
