@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="Design/CSS/HomeStyle1.css" rel="stylesheet" type="text/css" />
+    <link href="/Design/CSS/HomeStyle1.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fifa World Cup 2022</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,12 +19,12 @@
                     <a href=""><img src="/Design/Image\qatar2022.png" alt=""></a>
                 </div>
                 <ul class="menu">
-                    <li><a href="/index.php" class="seleccion">Inicio</a></li>
-                    <li><a href="/Views/NoUser/Equipos.php">Equipos</a></li>
-                    <li><a href="/Views/NoUser/Posiciones.php">Posiciones</a></li>
-                    <li><a href="/Views/NoUser/Resultados.php">Resultados</a></li>
+                    <li><a href="/indexadmin.php" class="seleccion">Inicio</a></li>
+                    <li><a href="/Views/Usuarios/Equipos.php">Equipos</a></li>
+                    <li><a href="/Views/Usuarios/Posiciones.php">Posiciones</a></li>
+                    <li><a href="/Views/Usuarios/Resultados.php">Resultados</a></li>
                     <li><a href="#clasificacion">Clasificación</a></li>
-                    <li><a href="/Views/NoUser/Favoritos.php">Favoritos</a></li>
+                    <li><a href="/Views/Usuarios/Favoritos.php">Favoritos</a></li>
                 </ul>
                 <div class="contenedor-usuario">
                     <div class="contenedor-iniciarsesion">
@@ -171,7 +171,7 @@
 
         <ul class="nav__ul">
           <li>
-            <a href="/Views/NoUser/Nosotros.php">Sobre Nosotros</a>
+            <a href="Nosotros.php">Sobre Nosotros</a>
           </li>
         </ul>
       </li>
